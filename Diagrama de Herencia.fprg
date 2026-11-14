@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Diagrama de herencia"/>
+    <attribute name="authors" value=""/>
+    <attribute name="about" value="Distribuye una herencia: 50% para el mayor, 30% para el segundo y el resto para el menor."/>
+    <attribute name="saved" value="2026-11-10 05:55:00 AM"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="herencia" type="Real" array="False" size=""/>
+      <declare name="parteMayor" type="Real" array="False" size=""/>
+      <declare name="parteSegundo" type="Real" array="False" size=""/>
+      <declare name="parteMenor" type="Real" array="False" size=""/>
+
+      <output expression="&quot;Ingresa el monto total de la herencia:&quot;" newline="True"/>
+      <input variable="herencia"/>
+
+      <assign variable="parteMayor" expression="herencia * 0.50"/>
+      <assign variable="parteSegundo" expression="herencia * 0.30"/>
+      <assign variable="parteMenor" expression="herencia - (parteMayor + parteSegundo)"/>
+
+      <output expression="&quot;La parte del hijo mayor (50%) es:&quot;" newline="True"/>
+      <output expression="parteMayor" newline="True"/>
+      <output expression="&quot;La parte del segundo hijo (30%) es:&quot;" newline="True"/>
+      <output expression="parteSegundo" newline="True"/>
+      <output expression="&quot;La parte del hijo menor (el resto) es:&quot;" newline="True"/>
+      <output expression="parteMenor" newline="True"/>
+    </body>
+  </function>
+</flowgorithm>

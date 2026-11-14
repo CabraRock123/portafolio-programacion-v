@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Consumo de gasolina en un viaje"/>
+    <attribute name="authors" value=""/>
+    <attribute name="about" value="Calcula los litros consumidos y el costo de un viaje a partir de los kilómetros recorridos, el rendimiento del vehículo y el precio por litro."/>
+    <attribute name="saved" value="2026-11-10 06:05:00 AM"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="kilometros" type="Real" array="False" size=""/>
+      <declare name="rendimiento" type="Real" array="False" size=""/>
+      <declare name="precioLitro" type="Real" array="False" size=""/>
+      <declare name="litrosConsumidos" type="Real" array="False" size=""/>
+      <declare name="costoViaje" type="Real" array="False" size=""/>
+
+      <output expression="&quot;¿Cuántos kilómetros recorrió?&quot;" newline="True"/>
+      <input variable="kilometros"/>
+      <output expression="&quot;¿Cuál es el rendimiento del vehículo en km por litro?&quot;" newline="True"/>
+      <input variable="rendimiento"/>
+      <output expression="&quot;¿Cuál es el precio de la gasolina por litro?&quot;" newline="True"/>
+      <input variable="precioLitro"/>
+
+      <if expression="rendimiento &lt;= 0">
+        <then>
+          <output expression="&quot;Error: el rendimiento debe ser mayor que cero.&quot;" newline="True"/>
+        </then>
+        <else>
+          <assign variable="litrosConsumidos" expression="kilometros / rendimiento"/>
+          <assign variable="costoViaje" expression="litrosConsumidos * precioLitro"/>
+          <output expression="&quot;Litros de gasolina consumidos:&quot;" newline="True"/>
+          <output expression="litrosConsumidos" newline="True"/>
+          <output expression="&quot;Costo total del viaje:&quot;" newline="True"/>
+          <output expression="costoViaje" newline="True"/>
+        </else>
+      </if>
+    </body>
+  </function>
+</flowgorithm>

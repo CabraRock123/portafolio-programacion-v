@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Diagrama de pizza"/>
+    <attribute name="authors" value=""/>
+    <attribute name="about" value="Calcula las rebanadas por invitado y las sobrantes."/>
+    <attribute name="saved" value="2026-11-09 08:00:00 PM"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="invitados" type="Integer" array="False" size=""/>
+      <declare name="pizzas" type="Integer" array="False" size=""/>
+      <declare name="rebanadasPizza" type="Integer" array="False" size=""/>
+      <declare name="totalRebanadas" type="Integer" array="False" size=""/>
+      <declare name="porInvitado" type="Integer" array="False" size=""/>
+      <declare name="sobrantes" type="Integer" array="False" size=""/>
+
+      <output expression="&quot;¿Cuántos invitados hay?&quot;" newline="True"/>
+      <input variable="invitados"/>
+      <output expression="&quot;¿Cuántas pizzas compraron?&quot;" newline="True"/>
+      <input variable="pizzas"/>
+      <output expression="&quot;¿Cuántas rebanadas tiene cada pizza?&quot;" newline="True"/>
+      <input variable="rebanadasPizza"/>
+
+      <assign variable="totalRebanadas" expression="pizzas * rebanadasPizza"/>
+
+      <if expression="invitados &lt;= 0">
+        <then>
+          <output expression="&quot;Error: debe haber al menos un invitado.&quot;" newline="True"/>
+        </then>
+        <else>
+          <if expression="totalRebanadas &lt; invitados">
+            <then>
+              <output expression="&quot;¡No hay suficiente pizza para los invitados!&quot;" newline="True"/>
+            </then>
+            <else>
+            </else>
+          </if>
+          <assign variable="porInvitado" expression="Int(totalRebanadas / invitados)"/>
+          <assign variable="sobrantes" expression="totalRebanadas % invitados"/>
+          <output expression="&quot;A cada invitado le tocan:&quot;" newline="True"/>
+          <output expression="porInvitado" newline="True"/>
+          <output expression="&quot;Rebanadas sobrantes:&quot;" newline="True"/>
+          <output expression="sobrantes" newline="True"/>
+        </else>
+      </if>
+    </body>
+  </function>
+</flowgorithm>

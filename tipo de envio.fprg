@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Tipo de envío" />
+    <attribute name="authors" value="" />
+    <attribute name="about" value="Diagrama equivalente a ejercicio_envios() en V. Solicita peso, distancia y urgencia (s/n); valida datos y clasifica como express, local económico o nacional estándar." />
+    <attribute name="saved" value="2026-11-10 06:20:00 AM" />
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters />
+    <body>
+      <declare name="peso" type="Real" array="False" size="" />
+      <declare name="distancia" type="Real" array="False" size="" />
+      <declare name="urgente" type="String" array="False" size="" />
+      <output expression="&quot;¿Cuánto pesa el paquete en kg?&quot;" newline="True" />
+      <input variable="peso" />
+      <output expression="&quot;¿Cuál es la distancia en km?&quot;" newline="True" />
+      <input variable="distancia" />
+      <output expression="&quot;¿Es urgente? (s/n):&quot;" newline="True" />
+      <input variable="urgente" />
+      <if expression="peso &lt;= 0 or distancia &lt;= 0">
+        <then>
+          <output expression="&quot;Error: el peso y la distancia deben ser mayores que cero.&quot;" newline="True" />
+        </then>
+        <else>
+          <if expression="urgente != &quot;s&quot; and urgente != &quot;S&quot; and urgente != &quot;n&quot; and urgente != &quot;N&quot;">
+            <then>
+              <output expression="&quot;Error: responde s para sí o n para no.&quot;" newline="True" />
+            </then>
+            <else>
+              <if expression="urgente = &quot;s&quot; or urgente = &quot;S&quot;">
+                <then>
+                  <output expression="&quot;Tipo de envío: express&quot;" newline="True" />
+                </then>
+                <else>
+                  <if expression="peso &lt;= 5 and distancia &lt;= 50">
+                    <then>
+                      <output expression="&quot;Tipo de envío: local económico&quot;" newline="True" />
+                    </then>
+                    <else>
+                      <output expression="&quot;Tipo de envío: nacional estándar&quot;" newline="True" />
+                    </else>
+                  </if>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+    </body>
+  </function>
+</flowgorithm>
